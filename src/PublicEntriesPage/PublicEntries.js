@@ -2,10 +2,6 @@ import React from 'react';
 import './PublicEntries.css';
 import STORE from '../dummystore';
 
-// display dates
-// sort by most recent
-// limit display to x #
-
 class PublicEntries extends React.Component {
     render() {
         const entrydisplay = STORE
