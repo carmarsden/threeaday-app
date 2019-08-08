@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
+import NavBar from './NavBar/NavBar';
 
 function App() {
   return (
     <div className="App">
+        <NavBar />
       <header className="App-header">
         <p>
           This will be my 3aDay app.
