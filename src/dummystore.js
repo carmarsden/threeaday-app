@@ -206,3 +206,5 @@ const STORE = [
         tag_serenity: false	
     },
 ]
+
+export default STORE;

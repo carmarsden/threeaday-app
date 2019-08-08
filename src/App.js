@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './NavBar/NavBar';
 import FooterBar from './FooterBar/FooterBar';
 import AboutPage from './AboutPage/AboutPage';
+import PublicEntries from './PublicEntriesPage/PublicEntries';
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
         <Route
             exact path='/'
             component={AboutPage} 
+        />
+        <Route
+            path='/goodthings'
+            component={PublicEntries} 
         />
 
         <FooterBar />
