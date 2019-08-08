@@ -4,7 +4,7 @@ import './NavBar.css';
 
 function NavBar() {
     return (
-        <nav>
+        <nav role='navigation'>
             <Link to='/'>Home</Link>
             <Link to='/goodthings'>Good Things</Link>
             <Link to='/login'>Log In</Link>
