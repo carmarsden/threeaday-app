@@ -6,6 +6,7 @@ import FooterBar from './FooterBar/FooterBar';
 import AboutPage from './AboutPage/AboutPage';
 import PublicEntries from './PublicEntriesPage/PublicEntries';
 import RegisterForm from './RegisterForm/RegisterForm';
+import LoginForm from './LoginForm/LoginForm';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
         <Route
             path='/register'
             component={RegisterForm} 
+        />
+        <Route
+            path='/login'
+            component={LoginForm} 
         />
 
         <FooterBar />
