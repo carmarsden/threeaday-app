@@ -1,25 +1,20 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './NavBar/NavBar';
 import FooterBar from './FooterBar/FooterBar';
+import AboutPage from './AboutPage/AboutPage';
 
 function App() {
   return (
     <div className="App">
         <NavBar />
-        <header className="App-header">
-            <p>
-                This will be my 3aDay app.
-            </p>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-        </header>
+
+        <Route
+            exact path='/'
+            component={AboutPage} 
+        />
+
         <FooterBar />
     </div>
   );
