@@ -4,9 +4,10 @@ import './App.css';
 import NavBar from './NavBar/NavBar';
 import FooterBar from './FooterBar/FooterBar';
 import AboutPage from './AboutPage/AboutPage';
-import PublicEntries from './PublicEntriesPage/PublicEntries';
 import RegisterForm from './RegisterForm/RegisterForm';
 import LoginForm from './LoginForm/LoginForm';
+import PublicEntries from './PublicEntriesPage/PublicEntries';
+import PrivateEntriesPage from './PrivateEntriesPage/PrivateEntriesPage';
 
 function App() {
   return (
@@ -18,16 +19,20 @@ function App() {
             component={AboutPage} 
         />
         <Route
-            path='/goodthings'
-            component={PublicEntries} 
-        />
-        <Route
             path='/register'
             component={RegisterForm} 
         />
         <Route
             path='/login'
             component={LoginForm} 
+        />
+        <Route
+            path='/goodthings'
+            component={PublicEntries} 
+        />
+        <Route
+            path='/mygoodthings'
+            component={PrivateEntriesPage} 
         />
 
         <FooterBar />

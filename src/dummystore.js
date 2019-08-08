@@ -4,7 +4,7 @@ const STORE = [
         content: "I saw a rainbow today!",
         public: true,
         user_id: 1,
-        date_modified: "2019-07-13 20:39:14",
+        date_modified: "2019-07-23 20:19:14",
         tag_amusement: false,
         tag_awe: true,
         tag_contentment: false,

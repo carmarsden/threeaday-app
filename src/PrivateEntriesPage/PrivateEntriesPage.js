@@ -1,19 +1,15 @@
 import React from 'react';
-import './PublicEntries.css';
+import './PrivateEntriesPage.css';
 import STORE from '../dummystore';
 
-// display dates
-// sort by most recent
-// limit display to x #
-
-class PublicEntries extends React.Component {
+class PrivateEntriesPage extends React.Component {
     render() {
+        const currentuser = 1;
         const entrydisplay = STORE
-            .filter(entry => entry.public === true)
+            .filter(entry => entry.user_id === currentuser)
             .sort(function(a, b) {
                 return new Date(b.date_modified) - new Date(a.date_modified)
             })
-            .slice(0,10)
             .map((entry, i) => {
                 return (
                     <li key={i}>
@@ -26,9 +22,11 @@ class PublicEntries extends React.Component {
         return (
             <main role='main'>
                 <header role='banner' className='aboutheader'>
-                    <h1>3aDay</h1>
-                    <h2>Good Things from the community</h2>
+                    <h1>My Good Things</h1>
                 </header>
+                <section className='aboutsection'>
+                    <button type='button' className='addbutton'><h2>Add Entries</h2></button>
+                </section>
                 <section className='aboutsection'>
                     <ul>
                         {entrydisplay}
@@ -39,4 +37,4 @@ class PublicEntries extends React.Component {
     }
 }
 
-export default PublicEntries;
+export default PrivateEntriesPage;
