@@ -8,6 +8,7 @@ import RegisterForm from './RegisterForm/RegisterForm';
 import LoginForm from './LoginForm/LoginForm';
 import PublicEntries from './PublicEntriesPage/PublicEntries';
 import PrivateEntriesPage from './PrivateEntriesPage/PrivateEntriesPage';
+import NewEntriesPage from './NewEntriesPage/NewEntriesPage';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
         <Route
             path='/mygoodthings'
             component={PrivateEntriesPage} 
+        />
+        <Route
+            path='/addentries'
+            component={NewEntriesPage} 
         />
 
         <FooterBar />

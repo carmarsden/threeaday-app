@@ -3,6 +3,10 @@ import './PrivateEntriesPage.css';
 import STORE from '../dummystore';
 
 class PrivateEntriesPage extends React.Component {
+    handleAddEntries = e => {
+        this.props.history.push('/addentries')
+    }
+
     render() {
         const currentuser = 1;
         const entrydisplay = STORE
@@ -25,7 +29,13 @@ class PrivateEntriesPage extends React.Component {
                     <h1>My Good Things</h1>
                 </header>
                 <section className='aboutsection'>
-                    <button type='button' className='addbutton'><h2>Add Entries</h2></button>
+                    <button 
+                        type='button' 
+                        className='addbutton'
+                        onClick={this.handleAddEntries}
+                    >
+                        <h2>Add Entries</h2>
+                    </button>
                 </section>
                 <section className='aboutsection'>
                     <ul>
