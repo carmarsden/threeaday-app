@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 function NavBar() {
     return (
         <nav role='navigation'>
-            <Link to='/'>Home</Link>
-            <Link to='/goodthings'>Good Things</Link>
-            <Link to='/mygoodthings'>My Good Things</Link>
-            <Link to='/login'>Log In</Link>
-            <Link to='/register'>Create Account</Link>
+            <NavLink exact to='/'>Home</NavLink>
+            <NavLink to='/goodthings'>Good Things</NavLink>
+            <NavLink to='/mygoodthings'>My Good Things</NavLink>
+            <NavLink to='/login'>Log In</NavLink>
+            <NavLink to='/register'>Create Account</NavLink>
         </nav>
     );    
 }
