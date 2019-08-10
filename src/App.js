@@ -9,6 +9,7 @@ import LoginForm from './LoginForm/LoginForm';
 import PublicEntries from './PublicEntriesPage/PublicEntries';
 import PrivateEntriesPage from './PrivateEntriesPage/PrivateEntriesPage';
 import NewEntriesPage from './NewEntriesPage/NewEntriesPage';
+import PrivateRoute from './Utils/PrivateRoute';
 
 class App extends React.Component {
     state = {
@@ -36,14 +37,13 @@ class App extends React.Component {
                 />
                 <Route
                     path='/login'
-//                    component={LoginForm}
                     render={(props) => <LoginForm {...props} updateLoginStatus={this.updateLoginStatus} />} 
                 />
                 <Route
                     path='/goodthings'
                     component={PublicEntries} 
                 />
-                <Route
+                <PrivateRoute
                     path='/mygoodthings'
                     component={PrivateEntriesPage} 
                 />
