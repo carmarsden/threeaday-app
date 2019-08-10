@@ -36,7 +36,7 @@ class RegisterForm extends React.Component {
         const newErrors = {...this.state.validationMessages};
         let hasError = false;
         const currentVal = value.trim();
-        const VALID_PW_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!_@#\$%\^&])[\S]+/;
+        const VALID_PW_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!_@#$%^&])[\S]+/;
 
         // validate for username
         if (stateField === 'username') {

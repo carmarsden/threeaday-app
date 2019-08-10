@@ -1,17 +1,43 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
+import TokenService from '../services/token-service';
 
-function NavBar() {
-    return (
-        <nav role='navigation'>
-            <NavLink exact to='/'>Home</NavLink>
-            <NavLink to='/goodthings'>Good Things</NavLink>
-            <NavLink to='/mygoodthings'>My Good Things</NavLink>
-            <NavLink to='/login'>Log In</NavLink>
-            <NavLink to='/register'>Create Account</NavLink>
-        </nav>
-    );    
+class NavBar extends React.Component {
+    handleLogOut = e => {
+        TokenService.clearAuthToken();
+        this.props.updateLoginStatus(false);
+    }
+
+    renderAuthLinks = e => {
+        if (TokenService.hasAuthToken()) {
+            return (
+                <>
+                    <NavLink to='/mygoodthings'>My Good Things</NavLink>
+                    <NavLink exact to='/' onClick={this.handleLogOut}>Log Out</NavLink>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <NavLink to='/login'>Log In</NavLink>
+                    <NavLink to='/register'>Create Account</NavLink>    
+                </>
+            )
+        }
+    }
+
+    render() {
+        const authLinks = this.renderAuthLinks();
+
+        return (
+            <nav role='navigation'>
+                <NavLink exact to='/'>Home</NavLink>
+                <NavLink to='/goodthings'>Good Things</NavLink>
+                {authLinks}
+            </nav>
+        );  
+    }
 }
 
 export default NavBar;

@@ -24,6 +24,7 @@ class LoginForm extends React.Component {
                 password.value = '';
                 TokenService.saveAuthToken(res.authToken);
                 this.props.history.push('/mygoodthings');
+                this.props.updateLoginStatus(true);
             })
             .catch(res => {
                 if (res.error) {

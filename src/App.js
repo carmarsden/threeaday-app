@@ -10,39 +10,52 @@ import PublicEntries from './PublicEntriesPage/PublicEntries';
 import PrivateEntriesPage from './PrivateEntriesPage/PrivateEntriesPage';
 import NewEntriesPage from './NewEntriesPage/NewEntriesPage';
 
-function App() {
-  return (
-    <div className="App">
-        <NavBar />
+class App extends React.Component {
+    state = {
+        loggedIn: false
+    }
 
-        <Route
-            exact path='/'
-            component={AboutPage} 
-        />
-        <Route
-            path='/register'
-            component={RegisterForm} 
-        />
-        <Route
-            path='/login'
-            component={LoginForm} 
-        />
-        <Route
-            path='/goodthings'
-            component={PublicEntries} 
-        />
-        <Route
-            path='/mygoodthings'
-            component={PrivateEntriesPage} 
-        />
-        <Route
-            path='/addentries'
-            component={NewEntriesPage} 
-        />
+    updateLoginStatus = (status) => {
+        this.setState({
+            loggedIn: status
+        })
+    }
 
-        <FooterBar />
-    </div>
-  );
+    render() {
+        return (
+            <div className="App">
+                <NavBar updateLoginStatus={this.updateLoginStatus} />
+        
+                <Route
+                    exact path='/'
+                    component={AboutPage} 
+                />
+                <Route
+                    path='/register'
+                    component={RegisterForm} 
+                />
+                <Route
+                    path='/login'
+//                    component={LoginForm}
+                    render={(props) => <LoginForm {...props} updateLoginStatus={this.updateLoginStatus} />} 
+                />
+                <Route
+                    path='/goodthings'
+                    component={PublicEntries} 
+                />
+                <Route
+                    path='/mygoodthings'
+                    component={PrivateEntriesPage} 
+                />
+                <Route
+                    path='/addentries'
+                    component={NewEntriesPage} 
+                />
+        
+                <FooterBar />
+            </div>
+        );
+    }
 }
 
 export default App;
