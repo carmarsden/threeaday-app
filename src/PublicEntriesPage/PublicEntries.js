@@ -1,6 +1,5 @@
 import React from 'react';
 import './PublicEntries.css';
-import STORE from '../dummystore';
 import EntriesService from '../services/entries-service';
 
 class PublicEntries extends React.Component {

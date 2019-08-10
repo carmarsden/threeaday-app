@@ -1,6 +1,5 @@
 import React from 'react';
 import './PrivateEntriesPage.css';
-import STORE from '../dummystore';
 import EntriesService from '../services/entries-service';
 
 class PrivateEntriesPage extends React.Component {
