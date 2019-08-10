@@ -1,17 +1,18 @@
 import React from 'react';
 import './RegisterForm.css';
+import ApiAuthService from '../services/api-auth-service';
 
 class RegisterForm extends React.Component {
     state = {
-        username: '',
+        user_name: '',
         password: '',
         passwordConfirm: '',
-        usernameValid: false,
+        user_nameValid: false,
         passwordValid: false,
         passwordConfirmValid: false,
         formValid: false,
         validationMessages: {
-            username: '',
+            user_name: '',
             password: '',
             passwordConfirm: '',
         },
@@ -20,8 +21,25 @@ class RegisterForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        window.alert('You submitted the form!');
-        this.props.history.push('/login');
+        this.setState({ error: null });
+        const { user_name, password } = e.target;
+
+        ApiAuthService.postUser({
+            user_name: user_name.value,
+            password: password.value,
+        })
+            .then(user => {
+                user_name.value = '';
+                password.value = '';
+                this.props.history.push('/login');
+            })
+            .catch(res => {
+                if (res.error) {
+                    this.setState({ error: res.error })
+                } else {
+                    this.setState({ error: 'Something went wrong! Please try again later.' })
+                }
+            })
     }
 
     handleCancel = e => {
@@ -38,13 +56,13 @@ class RegisterForm extends React.Component {
         const currentVal = value.trim();
         const VALID_PW_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!_@#$%^&])[\S]+/;
 
-        // validate for username
-        if (stateField === 'username') {
+        // validate for user_name
+        if (stateField === 'user_name') {
             if (currentVal.length === 0) {
-                newErrors.username = 'Username is required';
+                newErrors.user_name = 'Username is required';
                 hasError = true;
             } else {
-                newErrors.username = '';
+                newErrors.user_name = '';
                 hasError = false;
             }
         }
@@ -90,11 +108,13 @@ class RegisterForm extends React.Component {
 
     validateForm() {
         this.setState({
-            formValid: this.state.usernameValid && this.state.passwordValid && this.state.passwordConfirmValid
+            formValid: this.state.user_nameValid && this.state.passwordValid && this.state.passwordConfirmValid
         })
     }
 
     render() {
+        const error = this.state.error;
+        
         return (
             <main role='main'>
                 <header role='banner' className='aboutheader'>
@@ -102,18 +122,21 @@ class RegisterForm extends React.Component {
                 </header>
                 <section className='aboutsection'>
                 <h3>Create Your Account</h3>
+                    <div role='alert'>
+                        <span className='formerror'>{error}</span>
+                    </div>
                     <form className='signup-form' onSubmit={this.handleSubmit}>
                         <div>
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="user_name">Username</label>
                             <input 
                                 placeholder='username'
                                 type='text'
-                                name='username'
-                                id='username'
-                                onChange={e => this.updateFieldState(e.target.value, 'username')}
+                                name='user_name'
+                                id='user_name'
+                                onChange={e => this.updateFieldState(e.target.value, 'user_name')}
                                 required 
                             />
-                            <span className='validationmessage'>{this.state.validationMessages.username}</span>
+                            <span className='validationmessage'>{this.state.validationMessages.user_name}</span>
                         </div>
                         <div>
                             <label htmlFor="password">Password</label>
