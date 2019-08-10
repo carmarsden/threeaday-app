@@ -2,6 +2,7 @@ import React from 'react';
 import './NewEntriesPage.css';
 import NewEntryForm from '../NewEntryForm/NewEntryForm';
 import NewEntry from '../NewEntry/NewEntry';
+import EntriesService from '../services/entries-service';
 
 class NewEntriesPage extends React.Component {
     state = {
@@ -89,10 +90,23 @@ class NewEntriesPage extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state.entryArray)
+        const newEntries = this.state.entryArray;
+        newEntries.forEach(entry => entry.date_modified = new Date());
 
-        window.alert('You submitted the form!');
-        this.props.history.push('/mygoodthings')
+        EntriesService.postEntries(newEntries)
+            .then(entries => {
+                this.setState({
+                    entryArray: [],
+                })
+                this.props.history.push('/mygoodthings')
+            })
+            .catch(res => {
+                if (res.error) {
+                    this.setState({ error: res.error })
+                } else {
+                    this.setState({ error: 'Something went wrong! Please try again later.' })
+                }
+            })
     }
 
     handleCancel = e => {
