@@ -22,6 +22,7 @@ class PublicEntries extends React.Component {
     }
 
     render() {
+        const error = this.state.error;
         const entrydisplay = this.state.entries
             .filter(entry => entry.public === true)
             .sort(function(a, b) {
@@ -44,6 +45,9 @@ class PublicEntries extends React.Component {
                     <h2>Good Things from the community</h2>
                 </header>
                 <section className='aboutsection'>
+                    <div role='alert'>
+                        <span className='formerror'>{error}</span>
+                    </div>
                     <ul>
                         {entrydisplay}
                     </ul>

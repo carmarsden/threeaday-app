@@ -1,19 +1,33 @@
 import React from 'react';
 import './PrivateEntriesPage.css';
 import STORE from '../dummystore';
+import EntriesService from '../services/entries-service';
 
 class PrivateEntriesPage extends React.Component {
+    state = {
+        entries: [],
+        error: null,
+    }
+
+    componentDidMount() {
+        EntriesService.getByUser()
+            .then(res => this.setState({ entries: res }))
+            .catch(res => {
+                if (res.error) {
+                    this.setState({ error: res.error })
+                } else {
+                    this.setState({ error: 'Something went wrong! Please try again later.' })
+                }
+            })
+    }
+
     handleAddEntries = e => {
         this.props.history.push('/addentries')
     }
 
     render() {
-        const currentuser = 1;
-        const entrydisplay = STORE
-            .filter(entry => entry.user_id === currentuser)
-            .sort(function(a, b) {
-                return new Date(b.date_modified) - new Date(a.date_modified)
-            })
+        const error = this.state.error;
+        const entrydisplay = this.state.entries
             .map((entry, i) => {
                 return (
                     <li key={i}>
@@ -29,6 +43,9 @@ class PrivateEntriesPage extends React.Component {
                     <h1>My Good Things</h1>
                 </header>
                 <section className='aboutsection'>
+                    <div role='alert'>
+                        <span className='formerror'>{error}</span>
+                    </div>
                     <button 
                         type='button' 
                         className='addbutton'
