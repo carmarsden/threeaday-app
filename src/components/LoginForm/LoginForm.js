@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LoginForm.css';
 import ApiAuthService from '../../services/api-auth-service';
 import TokenService from '../../services/token-service';
@@ -64,6 +65,7 @@ class LoginForm extends React.Component {
                         <button type='button' onClick={this.handleCancel}>Cancel</button>
                         <button type='submit'>Log In</button>
                     </form>
+                    <div>New User? <Link to='/register'>Create Account</Link></div>
                 </section>
             </main>
         );
