@@ -1,6 +1,7 @@
 import React from 'react';
 import './PrivateEntriesPage.css';
 import EntriesService from '../../services/entries-service';
+import PrivateEntry from '../PrivateEntry/PrivateEntry';
 
 class PrivateEntriesPage extends React.Component {
     state = {
@@ -27,13 +28,7 @@ class PrivateEntriesPage extends React.Component {
     render() {
         const error = this.state.error;
         const entrydisplay = this.state.entries
-            .map((entry, i) => {
-                return (
-                    <li key={i}>
-                        {entry.content} <span className='entriesdate'>{entry.date_modified.slice(0,10)}</span>
-                    </li>
-                )
-            })
+            .map((entry, idx) => <PrivateEntry entry={entry} idx={idx} />)
         ;
 
         return (
