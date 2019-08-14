@@ -5,7 +5,9 @@ import NewEntryForm from '../NewEntryForm/NewEntryForm';
 import NewEntry from '../NewEntry/NewEntry';
 import EntriesService from '../../services/entries-service';
 
-Modal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') {
+    Modal.setAppElement('#root');
+}
 
 class NewEntriesPage extends React.Component {
     state = {
