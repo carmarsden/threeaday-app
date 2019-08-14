@@ -1,0 +1,12 @@
+.entriesdate {
+    display: block;
+    margin: 20px 0 0 0;
+    color: #666;
+    font-style: italic;
+}
+
+.entriestags {
+    display: block;
+    color: maroon;
+    font-style: italic;
+}

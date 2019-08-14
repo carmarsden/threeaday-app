@@ -28,7 +28,7 @@ class PrivateEntriesPage extends React.Component {
     render() {
         const error = this.state.error;
         const entrydisplay = this.state.entries
-            .map((entry, idx) => <PrivateEntry entry={entry} idx={idx} />)
+            .map((entry, idx) => <PrivateEntry entry={entry} key={idx} />)
         ;
 
         return (
