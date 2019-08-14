@@ -1,6 +1,6 @@
 import React from 'react';
 import './RegisterForm.css';
-import ApiAuthService from '../services/api-auth-service';
+import ApiAuthService from '../../services/api-auth-service';
 
 class RegisterForm extends React.Component {
     state = {

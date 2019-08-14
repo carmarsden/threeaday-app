@@ -1,15 +1,15 @@
 import React from 'react';
-import './PublicEntries.css';
-import EntriesService from '../services/entries-service';
+import './PrivateEntriesPage.css';
+import EntriesService from '../../services/entries-service';
 
-class PublicEntries extends React.Component {
+class PrivateEntriesPage extends React.Component {
     state = {
         entries: [],
         error: null,
     }
 
     componentDidMount() {
-        EntriesService.getSomePublic(10)
+        EntriesService.getByUser()
             .then(res => this.setState({ entries: res }))
             .catch(res => {
                 if (res.error) {
@@ -20,14 +20,13 @@ class PublicEntries extends React.Component {
             })
     }
 
+    handleAddEntries = e => {
+        this.props.history.push('/addentries')
+    }
+
     render() {
         const error = this.state.error;
         const entrydisplay = this.state.entries
-            .filter(entry => entry.public === true)
-            .sort(function(a, b) {
-                return new Date(b.date_modified) - new Date(a.date_modified)
-            })
-            .slice(0,10)
             .map((entry, i) => {
                 return (
                     <li key={i}>
@@ -40,13 +39,21 @@ class PublicEntries extends React.Component {
         return (
             <main role='main'>
                 <header role='banner' className='aboutheader'>
-                    <h1>3aDay</h1>
-                    <h2>Good Things from the community</h2>
+                    <h1>My Good Things</h1>
                 </header>
                 <section className='aboutsection'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                     </div>
+                    <button 
+                        type='button' 
+                        className='addbutton'
+                        onClick={this.handleAddEntries}
+                    >
+                        <h2>Add Entries</h2>
+                    </button>
+                </section>
+                <section className='aboutsection'>
                     <ul>
                         {entrydisplay}
                     </ul>
@@ -56,4 +63,4 @@ class PublicEntries extends React.Component {
     }
 }
 
-export default PublicEntries;
+export default PrivateEntriesPage;

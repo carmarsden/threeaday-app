@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
-import TokenService from '../services/token-service';
+import TokenService from '../../services/token-service';
 
 class NavBar extends React.Component {
     handleLogOut = e => {

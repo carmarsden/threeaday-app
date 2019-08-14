@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginForm.css';
-import ApiAuthService from '../services/api-auth-service';
-import TokenService from '../services/token-service';
+import ApiAuthService from '../../services/api-auth-service';
+import TokenService from '../../services/token-service';
 
 class LoginForm extends React.Component {
 

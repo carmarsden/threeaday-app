@@ -2,7 +2,7 @@ import React from 'react';
 import './NewEntriesPage.css';
 import NewEntryForm from '../NewEntryForm/NewEntryForm';
 import NewEntry from '../NewEntry/NewEntry';
-import EntriesService from '../services/entries-service';
+import EntriesService from '../../services/entries-service';
 
 class NewEntriesPage extends React.Component {
     state = {
