@@ -1,13 +1,17 @@
 import React from 'react';
+import Modal from 'react-modal';
 import './NewEntriesPage.css';
 import NewEntryForm from '../NewEntryForm/NewEntryForm';
 import NewEntry from '../NewEntry/NewEntry';
 import EntriesService from '../../services/entries-service';
 
+Modal.setAppElement('#root');
+
 class NewEntriesPage extends React.Component {
     state = {
         totalEntries: 1,
         entryArray: [],
+        showConfirmation: false,
     }
 
     componentDidMount() {
@@ -88,6 +92,15 @@ class NewEntriesPage extends React.Component {
         })
     }
 
+    handleShowConfirmation = e => {
+        this.setState({ showConfirmation: true })
+    }
+
+    handleCloseConfirmation = e => {
+        this.setState({ showConfirmation: false })
+        this.props.history.push('/mygoodthings')
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         const newEntries = this.state.entryArray;
@@ -97,8 +110,8 @@ class NewEntriesPage extends React.Component {
             .then(entries => {
                 this.setState({
                     entryArray: [],
-                })
-                this.props.history.push('/mygoodthings')
+                });
+                this.handleShowConfirmation();
             })
             .catch(res => {
                 if (res.error) {
@@ -124,6 +137,17 @@ class NewEntriesPage extends React.Component {
                 <header role='banner' className='aboutheader'>
                     <h1>Add Good Things</h1>
                 </header>
+                <section>
+                    <Modal 
+                        isOpen={this.state.showConfirmation}
+                        onRequestClose={this.handleCloseConfirmation}
+                        overlayClassName='modaloverlay'
+                        className='modalcontent'
+                    >
+                        Success! Your new entries have been added to your list of My Good Things.
+                        <button className='modalbutton' onClick={this.handleCloseConfirmation}>Okay!</button>                        
+                    </Modal>
+                </section>
                 <section className='aboutsection'>
                     <NewEntryForm 
                         addEntry={this.addEntry}
