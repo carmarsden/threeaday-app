@@ -1,6 +1,7 @@
 import React from 'react';
 import './RegisterForm.css';
 import ApiAuthService from '../../services/api-auth-service';
+import TokenService from '../../services/token-service';
 
 class RegisterForm extends React.Component {
     state = {
@@ -29,9 +30,17 @@ class RegisterForm extends React.Component {
             password: password.value,
         })
             .then(user => {
-                user_name.value = '';
-                password.value = '';
-                this.props.history.push('/login');
+                ApiAuthService.postLogin({
+                    user_name: user_name.value,
+                    password: password.value,
+                })
+                    .then(res => {
+                        user_name.value = '';
+                        password.value = '';
+                        TokenService.saveAuthToken(res.authToken);
+                        this.props.history.push('/mygoodthings');
+                        this.props.updateLoginStatus(true);
+                    })
             })
             .catch(res => {
                 if (res.error) {

@@ -33,7 +33,7 @@ class App extends React.Component {
                 />
                 <Route
                     path='/register'
-                    component={RegisterForm} 
+                    render={(props) => <RegisterForm {...props} updateLoginStatus={this.updateLoginStatus} />}
                 />
                 <Route
                     path='/login'
