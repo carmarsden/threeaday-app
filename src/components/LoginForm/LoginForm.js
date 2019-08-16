@@ -42,29 +42,31 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const error = this.state.error;
+        const error = this.state.error ? <span className='login-form-error'>{this.state.error}</span> : '';
 
         return (
             <main role='main'>
                 <Header />
                 <section className='bodysection scrollsnap'>
-                    <h3>Log In</h3>
-                    <div role='alert'>
-                        <span className='formerror'>{error}</span>
+                    <div className='form-container'>
+                        <h2 className='section-header'>Log In</h2>
+                        <div role='alert'>
+                            {error}
+                        </div>
+                        <form className='login-form' onSubmit={this.handleSubmit}>
+                            <div>
+                                <label htmlFor="user_name">Username: </label>
+                                <input placeholder='username' type="text" name='user_name' id='user_name' required />
+                            </div>
+                            <div>
+                                <label htmlFor="password">Password: </label>
+                                <input placeholder='password' type="password" name='password' id='password' required />
+                            </div>
+                            <button type='button' onClick={this.handleCancel}>Cancel</button>
+                            <button type='submit'>Log In</button>
+                        </form>
+                        <div className='login-form-addon'>New User? &nbsp;&nbsp; <Link to='/register'>Create Account</Link></div>
                     </div>
-                    <form className='login-form' onSubmit={this.handleSubmit}>
-                        <div>
-                            <label htmlFor="user_name">Username</label>
-                            <input placeholder='username' type="text" name='user_name' id='user_name' required />
-                        </div>
-                        <div>
-                            <label htmlFor="password">Password</label>
-                            <input placeholder='password' type="password" name='password' id='password' required />
-                        </div>
-                        <button type='button' onClick={this.handleCancel}>Cancel</button>
-                        <button type='submit'>Log In</button>
-                    </form>
-                    <div>New User? <Link to='/register'>Create Account</Link></div>
                 </section>
             </main>
         );

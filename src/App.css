@@ -1,3 +1,10 @@
+:root {
+    --section1-background: #FFA739;
+    --section1-foreground: #422400;
+    --section2-background: #FFCB39;
+    --section2-foreground: #574000;
+}
+
 .scrollsnap {
     scroll-snap-align: start;
 }
@@ -12,16 +19,31 @@
 .bodysection {
     height: 100vh;
     padding: 30px 15px;
-    background-color: #FFA739;
-    color: #9B5600;
+    background-color: var(--section1-background);
+    color: var(--section1-foreground);
     overflow-y: auto;
 }
 
 .bodysection:nth-child(even) {
     background-color: #FFCB39;
-    color: #9B7200;
+    color: #574000;
 }
+
+.bodysection a {
+    color: var(--section1-foreground);
+    text-decoration: underline;
+}
+.bodysection a:hover {
+    color: var(--section1-foreground);
+    text-decoration: none;
+}
+
 
 h1, h2, h3 {
     font-family: 'Caveat', cursive;
+}
+
+.section-header {
+    font-size: 2.25em;
+    line-height: 1.25em;
 }

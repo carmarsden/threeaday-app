@@ -123,56 +123,64 @@ class RegisterForm extends React.Component {
     }
 
     render() {
-        const error = this.state.error;
+        const error = this.state.error ? <span className='login-form-error'>{this.state.error}</span> : '';
+        const validationicon = <i className="fas fa-exclamation-circle" />;
         
         return (
             <main role='main'>
                 <Header />
                 <section className='bodysection scrollsnap'>
-                    <h3>Create Your Account</h3>
-                    <div role='alert'>
-                        <span className='formerror'>{error}</span>
+                    <div className='form-container'>
+                        <h2 className='section-header'>Create Your Account</h2>
+                        <div role='alert'>
+                            {error}
+                        </div>
+                        <form className='signup-form' onSubmit={this.handleSubmit}>
+                            <div>
+                                <label htmlFor="user_name">Username: </label>
+                                <input 
+                                    placeholder='username'
+                                    type='text'
+                                    name='user_name'
+                                    id='user_name'
+                                    onChange={e => this.updateFieldState(e.target.value, 'user_name')}
+                                    required 
+                                />
+                                {this.state.validationMessages.user_name ? validationicon : ''}
+                            </div>
+                            <div>
+                                <label htmlFor="password">Password</label>
+                                <input 
+                                    placeholder='password'
+                                    type='password'
+                                    name='password'
+                                    id='password'
+                                    onChange={e => this.updateFieldState(e.target.value, 'password')}
+                                    required 
+                                />
+                                {this.state.validationMessages.password ? validationicon : ''}
+                            </div>
+                            <div>
+                                <label htmlFor="passwordconfirm">Confirm Password</label>
+                                <input 
+                                    placeholder='confirm password'
+                                    type='password'
+                                    name='passwordconfirm'
+                                    id='passwordconfirm' 
+                                    onChange={e => this.updateFieldState(e.target.value, 'passwordConfirm')}
+                                    required 
+                                />
+                                {this.state.validationMessages.passwordConfirm ? validationicon : ''}
+                            </div>
+                            <div className='validationmessage'>
+                                <p>{this.state.validationMessages.user_name}</p>
+                                <p>{this.state.validationMessages.password}</p>
+                                <p>{this.state.validationMessages.passwordConfirm}</p>
+                            </div>
+                            <button type='button' onClick={this.handleCancel}>Cancel</button>
+                            <button type='submit' disabled={!this.state.formValid}>Sign Up</button>
+                        </form>
                     </div>
-                    <form className='signup-form' onSubmit={this.handleSubmit}>
-                        <div>
-                            <label htmlFor="user_name">Username</label>
-                            <input 
-                                placeholder='username'
-                                type='text'
-                                name='user_name'
-                                id='user_name'
-                                onChange={e => this.updateFieldState(e.target.value, 'user_name')}
-                                required 
-                            />
-                            <span className='validationmessage'>{this.state.validationMessages.user_name}</span>
-                        </div>
-                        <div>
-                            <label htmlFor="password">Password</label>
-                            <input 
-                                placeholder='password'
-                                type='password'
-                                name='password'
-                                id='password'
-                                onChange={e => this.updateFieldState(e.target.value, 'password')}
-                                required 
-                            />
-                            <span className='validationmessage'>{this.state.validationMessages.password}</span>
-                        </div>
-                        <div>
-                            <label htmlFor="passwordconfirm">Confirm Password</label>
-                            <input 
-                                placeholder='confirm password'
-                                type='password'
-                                name='passwordconfirm'
-                                id='passwordconfirm' 
-                                onChange={e => this.updateFieldState(e.target.value, 'passwordConfirm')}
-                                required 
-                            />
-                            <span className='validationmessage'>{this.state.validationMessages.passwordConfirm}</span>
-                        </div>
-                        <button type='button' onClick={this.handleCancel}>Cancel</button>
-                        <button type='submit' disabled={!this.state.formValid}>Sign Up</button>
-                    </form>
                 </section>
             </main>
         );

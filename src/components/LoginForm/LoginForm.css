@@ -1,8 +1,38 @@
-.formerror {
-    display: block;
+.form-container {
+    position: relative;
+    top: 10%;
+}
+
+.login-form-error {
+    display: inline-block;
     margin: 5px;
-    color: maroon;
+    border-bottom: 1px solid #9B2800;
+    color: #9B2800;
     font-style: italic;
-    font-size: 16px;
-    font-family: sans-serif;
+}
+
+.login-form input {
+    background: #FFF;
+    border: 1px solid var(--section2-foreground);
+    border-radius: 0.3em;
+    margin: 0.5em;
+    padding: 0.3em;
+    color: var(--section2-foreground);
+    font-size: 0.8em;
+}
+
+.login-form button {
+    background: #FFF;
+    border: 1px solid var(--section2-foreground);
+    border-radius: 0.3em;
+    margin: 0.5em;
+    padding: 0.3em;
+    color: var(--section2-foreground);
+    font-weight: bold;
+    font-size: 0.8em;
+    min-width: 10%;
+}
+
+.login-form-addon {
+    margin-top: 2em;
 }

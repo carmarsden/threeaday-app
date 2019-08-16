@@ -5,8 +5,8 @@ import vitamin_bottle_logo from '../../images/vitamin_bottle_logo.png';
 function Header(props) {
     return (
         <header role='banner' className='bodyheader scrollsnap'>
-            <img src={vitamin_bottle_logo} alt='Vitamin Bottle Logo' className='header-logo' />
-            <h2 className='header-subheader'>{props.children}</h2>
+            <img src={vitamin_bottle_logo} alt='3aDay Logo' className='header-logo' />
+            <h1 className='header-subheader'>{props.children}</h1>
         </header>
     );    
 }
