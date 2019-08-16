@@ -39,11 +39,11 @@ class PublicEntries extends React.Component {
 
         return (
             <main role='main'>
-                <header role='banner' className='aboutheader'>
+                <header role='banner' className='bodyheader scrollsnap'>
                     <h1>3aDay</h1>
                     <h2>Good Things from the community</h2>
                 </header>
-                <section className='aboutsection'>
+                <section className='bodysection scrollsnap'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                     </div>

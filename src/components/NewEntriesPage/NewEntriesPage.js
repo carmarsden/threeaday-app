@@ -136,7 +136,7 @@ class NewEntriesPage extends React.Component {
 
         return (
             <main role='main'>
-                <header role='banner' className='aboutheader'>
+                <header role='banner' className='bodyheader scrollsnap'>
                     <h1>Add Good Things</h1>
                 </header>
                 <section>
@@ -150,7 +150,7 @@ class NewEntriesPage extends React.Component {
                         <button className='modalbutton' onClick={this.handleCloseConfirmation}>Okay!</button>                        
                     </Modal>
                 </section>
-                <section className='aboutsection'>
+                <section className='bodysection scrollsnap'>
                     <NewEntryForm 
                         addEntry={this.addEntry}
                         removeEntry={this.removeEntry}

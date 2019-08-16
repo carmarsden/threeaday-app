@@ -1,16 +1,18 @@
 footer {
     padding: 1% 0;
-    background-color: #aaa;
+    background-color: #FFF;
+    color: #9B2800;
     width: 100%;
+    scroll-snap-align: end;
 }
 
 footer a {
     margin: 0 10px;
-    color: #333;
+    color: #9B2800;
     text-decoration: underline;
 }
 
 footer a:hover {
-    color: #FFF;
+    color: #C53200;
     text-decoration: none;
 }

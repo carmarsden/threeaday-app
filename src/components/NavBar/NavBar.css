@@ -1,18 +1,18 @@
 nav {
   padding: 1% 0;
-  background-color: #aaa;
+  background-color: #FFF;
   width: 100%;
 }
 
 nav a {
     display: inline-block;
     margin: 10px;
-    color: #333;
+    color: #9B2800;
     text-decoration: none;
 }
 
 nav a:hover {
-    color: #FFF;
+    color: #C53200;
 }
 
 nav .active {
@@ -20,5 +20,5 @@ nav .active {
 }
 
 nav .active:hover {
-    color: #333;
+    color: #C53200;
 }

@@ -31,7 +31,7 @@ class NavBar extends React.Component {
         const authLinks = this.renderAuthLinks();
 
         return (
-            <nav role='navigation'>
+            <nav role='navigation' className='scrollsnap'>
                 <NavLink exact to='/'>Home</NavLink>
                 <NavLink to='/goodthings'>Good Things</NavLink>
                 {authLinks}

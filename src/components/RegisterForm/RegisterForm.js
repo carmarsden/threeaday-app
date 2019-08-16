@@ -126,11 +126,11 @@ class RegisterForm extends React.Component {
         
         return (
             <main role='main'>
-                <header role='banner' className='aboutheader'>
+                <header role='banner' className='bodyheader scrollsnap'>
                     <h1>3aDay</h1>
                 </header>
-                <section className='aboutsection'>
-                <h3>Create Your Account</h3>
+                <section className='bodysection scrollsnap'>
+                    <h3>Create Your Account</h3>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                     </div>

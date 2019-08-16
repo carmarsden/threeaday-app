@@ -33,10 +33,10 @@ class PrivateEntriesPage extends React.Component {
 
         return (
             <main role='main'>
-                <header role='banner' className='aboutheader'>
+                <header role='banner' className='bodyheader scrollsnap'>
                     <h1>My Good Things</h1>
                 </header>
-                <section className='aboutsection'>
+                <section className='bodysection scrollsnap'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                     </div>
@@ -48,7 +48,7 @@ class PrivateEntriesPage extends React.Component {
                         <h2>Add Entries</h2>
                     </button>
                 </section>
-                <section className='aboutsection'>
+                <section className='bodysection scrollsnap'>
                     <ul>
                         {entrydisplay}
                     </ul>

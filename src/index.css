@@ -5,9 +5,10 @@
 body {
     font-family: Cochin, Georgia, serif;
     font-size: 20px;
-    color: #333;
+    color: #FFF;
     text-align: center;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-snap-type: y mandatory;
 }
