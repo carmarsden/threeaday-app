@@ -3,6 +3,14 @@
     border-radius: 5px;
 }
 
+.newentries-form textarea {
+    width: 90%;
+    border: 1px solid var(--section1-foreground);
+    border-radius: 0.3em;
+    font-size: 0.8em;
+    color: var(--section1-foreground);
+}
+
 .newentries-form input {
     background: #FFF;
     border: 1px solid var(--section1-foreground);
@@ -36,6 +44,14 @@
     margin: 10px;
 }
 
-.newentries-form input[type='checkbox'] {
-    border: 5px red solid;
+.form-explanation {
+    margin-top: 0;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+@media screen and (min-width: 500px) {
+    .newentries-form textarea {
+        width: 400px;
+    }    
 }

@@ -1,12 +1,13 @@
 .publicentries-list {
     list-style: none;
+    padding: 0;
 }
 
 .publicentries-item {
     border: 1px dotted var(--section2-foreground);
     border-radius: 5px;
     margin: 1em auto;
-    width: 80%;
+    width: 90%;
     text-align: left;
     padding: 10px;
 }

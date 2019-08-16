@@ -14,7 +14,6 @@ class NewEntry extends React.Component {
                         name='content'
                         id='content'
                         rows='3'
-                        cols='50'
                         data-index={idx} 
                         onChange={e => this.props.handleInputChange(e)}
                         required 
@@ -29,9 +28,10 @@ class NewEntry extends React.Component {
                             data-index={idx} 
                             onChange={e => this.props.handleInputChange(e)}
                             defaultChecked 
-                        /> Share publicly?
+                        />
+                        Share publicly?
                     </label>
-                    <p className="form-explanation">Public entries are posted "anonymously", not associated with any username</p>
+                    <p className='form-explanation'>(Public entries are listed anonymously)</p>
                 </div>
                 <div>
                     <fieldset>

@@ -4,15 +4,25 @@
     font-style: italic;
 }
 
+.signup-form div {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .signup-form i {
-    color: #9B2800
+    color: #9B2800;
+    position: absolute;
+    bottom: 5px;
+    right: -25px;
 }
 
 .signup-form input {
+    display: block;
     background: #FFF;
     border: 1px solid var(--section2-foreground);
     border-radius: 0.3em;
-    margin: 0.5em;
+    margin: 0.5em auto;
     padding: 0.3em;
     color: var(--section2-foreground);
     font-size: 0.8em;

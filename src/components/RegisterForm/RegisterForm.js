@@ -143,34 +143,37 @@ class RegisterForm extends React.Component {
                                     type='text'
                                     name='user_name'
                                     id='user_name'
+                                    size='25'
                                     onChange={e => this.updateFieldState(e.target.value, 'user_name')}
                                     required 
                                 />
                                 {this.state.validationMessages.user_name ? validationicon : ''}
                             </div>
                             <div>
-                                <label htmlFor="password">Password</label>
+                               {this.state.validationMessages.password ? validationicon : ''}
+                                <label htmlFor="password">Password: </label>
                                 <input 
                                     placeholder='password'
                                     type='password'
                                     name='password'
                                     id='password'
+                                    size='25'
                                     onChange={e => this.updateFieldState(e.target.value, 'password')}
                                     required 
                                 />
-                                {this.state.validationMessages.password ? validationicon : ''}
                             </div>
                             <div>
-                                <label htmlFor="passwordconfirm">Confirm Password</label>
+                                {this.state.validationMessages.passwordConfirm ? validationicon : ''}
+                                <label htmlFor="passwordconfirm">Confirm Password: </label>
                                 <input 
                                     placeholder='confirm password'
                                     type='password'
                                     name='passwordconfirm'
                                     id='passwordconfirm' 
+                                    size='25'
                                     onChange={e => this.updateFieldState(e.target.value, 'passwordConfirm')}
                                     required 
                                 />
-                                {this.state.validationMessages.passwordConfirm ? validationicon : ''}
                             </div>
                             <div className='validationmessage'>
                                 <p>{this.state.validationMessages.user_name}</p>

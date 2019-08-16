@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.80);
+    background-color: rgba(155, 40, 0, 0.80);
 }
 
 .modalcontent {
@@ -13,11 +13,12 @@
     left: 40px;
     right: 40px;
     bottom: auto;
-    border: 1px solid #ccc;
-    background: #fff;
+    background: #FFF;
+    border: 1px solid var(--section1-foreground);
+    border-radius: 0.3em;
+    color: var(--section1-foreground);
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    border-radius: 4px;
     outline: none;
     padding: 20px;
 }
@@ -26,5 +27,10 @@
     display: block;
     padding: 10px 30px;
     margin: 20px auto;
-    border-radius: 5px;
+    background: #FFF;
+    border: 1px solid var(--section1-foreground);
+    border-radius: 0.3em;
+    color: var(--section1-foreground);
+    font-weight: bold;
+    font-size: 0.8em;
 }
