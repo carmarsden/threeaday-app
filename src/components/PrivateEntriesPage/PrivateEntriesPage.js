@@ -44,11 +44,13 @@ class PrivateEntriesPage extends React.Component {
                         className='addbutton'
                         onClick={this.handleAddEntries}
                     >
-                        <h2>Add Entries</h2>
+                        Add New Good Things!
                     </button>
+                    <p>Users see the most benefit from consistently noticing three good things, every day.</p>
+                    <p>Try to get in a 3aDay Daily Habit!</p>
                 </section>
                 <section className='bodysection scrollsnap'>
-                    <ul>
+                    <ul className='privateentries-list'>
                         {entrydisplay}
                     </ul>
                 </section>

@@ -31,8 +31,9 @@ class PublicEntries extends React.Component {
             .slice(0,10)
             .map((entry, i) => {
                 return (
-                    <li key={i}>
-                        {entry.content} <span className='entriesdate'>{entry.date_modified.slice(0,10)}</span>
+                    <li key={i} className='publicentries-item'>
+                        <span className='publicentries-content'>{entry.content}</span>
+                        <span className='publicentries-date'>Logged on {entry.date_modified.slice(0,10)}</span>
                     </li>
                 )
             })
@@ -45,7 +46,7 @@ class PublicEntries extends React.Component {
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                     </div>
-                    <ul>
+                    <ul className='publicentries-list'>
                         {entrydisplay}
                     </ul>
                 </section>

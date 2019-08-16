@@ -31,10 +31,13 @@ function PrivateEntry(props) {
 
 
     return (
-        <li>
-            <span className='entriesdate'>{entry.date_modified.slice(0,10)}</span>
-            {entry.content}
-            <span className='entriestags'>{emotionText}</span>
+        <li className='privateentries-item'>
+            <span className='privateentries-date'>{entry.date_modified.slice(0,10)}</span>
+            <span className='privateentries-content'>{entry.content}</span>
+            <span className='privateentries-tags'>
+                {emotionText ? 'This made me feel: ' : ''} 
+                {emotionText}
+            </span>
         </li>
     )
 
