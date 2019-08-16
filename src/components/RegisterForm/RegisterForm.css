@@ -29,3 +29,9 @@
     font-size: 0.8em;
     min-width: 10%;
 }
+
+.signup-form button:disabled {
+    background: var(--section2-foreground);
+    color: var(--section2-background);
+    text-decoration: line-through;
+}

@@ -1,0 +1,41 @@
+.newentries-form fieldset {
+    border: 1px solid var(--section2-foreground);
+    border-radius: 5px;
+}
+
+.newentries-form input {
+    background: #FFF;
+    border: 1px solid var(--section1-foreground);
+    border-radius: 0.3em;
+    margin: 0 0.5em;
+    padding: 0.3em;
+    color: var(--section1-foreground);
+    font-size: 0.8em;
+}
+
+.newentries-form button {
+    background: #FFF;
+    border: 1px solid var(--section1-foreground);
+    border-radius: 0.3em;
+    margin: 0.5em;
+    padding: 0.3em;
+    color: var(--section1-foreground);
+    font-weight: bold;
+    font-size: 0.8em;
+    min-width: 10%;
+}
+
+.newentries-form button:disabled {
+    background: var(--section1-foreground);
+    color: var(--section1-background);
+    text-decoration: line-through;
+}
+
+.newentries-form label {
+    display: inline-block;
+    margin: 10px;
+}
+
+.newentries-form input[type='checkbox'] {
+    border: 5px red solid;
+}
