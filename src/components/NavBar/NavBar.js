@@ -14,7 +14,7 @@ class NavBar extends React.Component {
             return (
                 <>
                     <NavLink to='/mygoodthings'>My Good Things</NavLink>
-                    <NavLink exact to='/' onClick={this.handleLogOut}>Log Out</NavLink>
+                    <NavLink to='/logout' onClick={this.handleLogOut}>Log Out</NavLink>
                 </>
             )
         } else {

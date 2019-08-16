@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import FooterBar from './components/FooterBar/FooterBar';
@@ -50,6 +50,10 @@ class App extends React.Component {
                 <Route
                     path='/addentries'
                     component={NewEntriesPage} 
+                />
+                <Route 
+                    path="/logout"
+                    render={() => <Redirect to='/' />}
                 />
         
                 <FooterBar />
