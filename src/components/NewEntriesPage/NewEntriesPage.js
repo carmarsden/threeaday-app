@@ -4,6 +4,7 @@ import './NewEntriesPage.css';
 import NewEntryForm from '../NewEntryForm/NewEntryForm';
 import NewEntry from '../NewEntry/NewEntry';
 import EntriesService from '../../services/entries-service';
+import Header from '../Header/Header';
 
 if (process.env.NODE_ENV !== 'test') {
     Modal.setAppElement('#root');
@@ -136,9 +137,7 @@ class NewEntriesPage extends React.Component {
 
         return (
             <main role='main'>
-                <header role='banner' className='bodyheader scrollsnap'>
-                    <h1>Add Good Things</h1>
-                </header>
+                <Header>Add Good Things</Header>
                 <section>
                     <Modal 
                         isOpen={this.state.showConfirmation}

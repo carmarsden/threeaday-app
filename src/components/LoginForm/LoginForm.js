@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './LoginForm.css';
 import ApiAuthService from '../../services/api-auth-service';
 import TokenService from '../../services/token-service';
+import Header from '../Header/Header';
 
 class LoginForm extends React.Component {
 
@@ -45,9 +46,7 @@ class LoginForm extends React.Component {
 
         return (
             <main role='main'>
-                <header role='banner' className='bodyheader scrollsnap'>
-                    <h1>3aDay</h1>
-                </header>
+                <Header />
                 <section className='bodysection scrollsnap'>
                     <h3>Log In</h3>
                     <div role='alert'>

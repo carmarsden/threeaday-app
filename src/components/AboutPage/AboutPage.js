@@ -1,13 +1,11 @@
 import React from 'react';
 import './AboutPage.css';
+import Header from '../Header/Header';
 
 function AboutPage() {
     return (
         <main role='main'>
-            <header role='banner' className='bodyheader scrollsnap'>
-                <h1>3aDay</h1>
-                <h2>the vitamin for your soul</h2>
-            </header>
+            <Header>the vitamin for your soul</Header>
             <section className='bodysection scrollsnap'>
                 <h3>About 3 Good Things</h3>
                 <p className='aboutp'>3 Good Things is based on academic research on mental health, happiness, and resilience. Thinking about <a href="https://www.actionforhappiness.org/take-action/find-three-good-things-each-day" target="_blank" rel="noopener noreferrer">three good things</a> each day is proven to help with mental health.</p>

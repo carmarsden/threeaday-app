@@ -2,6 +2,7 @@ import React from 'react';
 import './PrivateEntriesPage.css';
 import EntriesService from '../../services/entries-service';
 import PrivateEntry from '../PrivateEntry/PrivateEntry';
+import Header from '../Header/Header';
 
 class PrivateEntriesPage extends React.Component {
     state = {
@@ -33,9 +34,7 @@ class PrivateEntriesPage extends React.Component {
 
         return (
             <main role='main'>
-                <header role='banner' className='bodyheader scrollsnap'>
-                    <h1>My Good Things</h1>
-                </header>
+                <Header>My Good Things</Header>
                 <section className='bodysection scrollsnap'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>

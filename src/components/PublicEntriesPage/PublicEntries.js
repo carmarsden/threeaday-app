@@ -1,6 +1,7 @@
 import React from 'react';
 import './PublicEntries.css';
 import EntriesService from '../../services/entries-service';
+import Header from '../Header/Header';
 
 class PublicEntries extends React.Component {
     state = {
@@ -39,10 +40,7 @@ class PublicEntries extends React.Component {
 
         return (
             <main role='main'>
-                <header role='banner' className='bodyheader scrollsnap'>
-                    <h1>3aDay</h1>
-                    <h2>Good Things from the community</h2>
-                </header>
+                <Header>Good Things from the community</Header>
                 <section className='bodysection scrollsnap'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
