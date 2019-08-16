@@ -11,4 +11,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-snap-type: y mandatory;
+    scroll-snap-type: mandatory;
+    scroll-snap-destination: 0 0;
+    scroll-snap-points-y: repeat(100vh);
 }
