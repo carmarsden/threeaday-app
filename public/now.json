@@ -4,12 +4,20 @@
     "alias": "carmarsden-threeaday-app",
     "routes": [
         {
-          "src": "^/static/(.*)",
-          "dest": "/static/$1"
+            "src": "^/static/(.*)",
+            "dest": "/static/$1"
         },
         {
-          "src": ".*",
-          "dest": "/index.html"
+            "src": "^/favicon-32x32.png$",
+            "dest": "/favicon-32x32.png"
+        },
+        {
+            "src": "^/favicon-16x16.png$",
+            "dest": "/favicon-16x16.png"
+        },
+        {
+            "src": ".*",
+            "dest": "/index.html"
         }
     ],
     "build": {
