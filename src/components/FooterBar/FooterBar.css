@@ -3,7 +3,6 @@ footer {
     background-color: #FFF;
     color: #9B2800;
     width: 100%;
-    scroll-snap-align: end;
 }
 
 footer a {

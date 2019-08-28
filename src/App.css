@@ -5,23 +5,16 @@
     --section2-foreground: #574000;
 }
 
-.scrollsnap {
-    scroll-snap-align: start;
-}
-
 .bodyheader {
-    height: 100vh;
-    padding: 45px 15px;
+    padding: 10% 5%;
     background-color: #9B2800;
     color: #fff;
 }
 
 .bodysection {
-    height: 100vh;
-    padding: 30px 15px;
+    padding: 10% 15px;
     background-color: var(--section1-background);
     color: var(--section1-foreground);
-    overflow-y: auto;
 }
 
 .bodysection:nth-child(even) {
@@ -44,6 +37,13 @@ h1, h2, h3 {
 }
 
 .section-header {
-    font-size: 2.25em;
-    line-height: 1.25em;
+    font-size: 1.625em;
+    line-height: 1.15em;
+}
+
+@media screen and (min-width: 600px) {
+    .section-header {
+        font-size: 2.25em;
+        line-height: 1.25em;
+    }       
 }

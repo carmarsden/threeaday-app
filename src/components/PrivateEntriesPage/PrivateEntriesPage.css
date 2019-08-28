@@ -36,10 +36,10 @@
     background: #FFF;
     border: 1px solid var(--section2-foreground);
     border-radius: 0.3em;
-    margin: 20vh auto 10vh auto;
+    margin: 10% auto;
     padding: 2% 10%;
     color: var(--section2-foreground);
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.625em;
     min-width: 10%;
 }
