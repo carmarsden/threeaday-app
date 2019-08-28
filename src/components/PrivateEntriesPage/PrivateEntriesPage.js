@@ -12,6 +12,11 @@ class PrivateEntriesPage extends React.Component {
     }
 
     componentDidMount() {
+        document.getElementById('primaryfocus').scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+        });
+    
         EntriesService.getByUser()
             .then(res => this.setState({ 
                 entries: res,
@@ -19,9 +24,15 @@ class PrivateEntriesPage extends React.Component {
             }))
             .catch(res => {
                 if (res.error) {
-                    this.setState({ error: res.error })
+                    this.setState({ 
+                        error: res.error,
+                        loading: false,
+                    })
                 } else {
-                    this.setState({ error: 'Something went wrong! Please try again later.' })
+                    this.setState({ 
+                        error: 'Something went wrong! Please try again later.',
+                        loading: false,
+                    })
                 }
             })
     }
@@ -40,10 +51,7 @@ class PrivateEntriesPage extends React.Component {
         return (
             <main role='main'>
                 <Header>My Good Things</Header>
-                <section className='bodysection'>
-                    <div role='alert'>
-                        <span className='formerror'>{error}</span>
-                    </div>
+                <section className='bodysection' id='primaryfocus'>
                     <button 
                         type='button' 
                         className='addbutton'
@@ -55,7 +63,10 @@ class PrivateEntriesPage extends React.Component {
                     <p>Try to get in a 3aDay Daily Habit!</p>
                 </section>
                 <section className='bodysection'>
-                    {loadingdisplay}
+                    <div role='alert'>
+                        <span className='formerror'>{error}</span>
+                        {loadingdisplay}
+                    </div>
                     <ul className='privateentries-list'>
                         {entrydisplay}
                     </ul>

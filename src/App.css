@@ -12,7 +12,7 @@
 }
 
 .bodysection {
-    padding: 10% 15px;
+    padding: 5% 15px;
     background-color: var(--section1-background);
     color: var(--section1-foreground);
 }

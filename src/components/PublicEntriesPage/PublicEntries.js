@@ -11,6 +11,11 @@ class PublicEntries extends React.Component {
     }
 
     componentDidMount() {    
+        document.getElementById('primaryfocus').scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+        });
+
         EntriesService.getSomePublic(10)
             .then(res => this.setState({ 
                 entries: res,
@@ -48,7 +53,7 @@ class PublicEntries extends React.Component {
         return (
             <main role='main'>
                 <Header>Good Things from the community</Header>
-                <section className='bodysection'>
+                <section className='bodysection' id='primaryfocus'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                         {loadingdisplay}
