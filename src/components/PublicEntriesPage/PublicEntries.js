@@ -6,12 +6,16 @@ import Header from '../Header/Header';
 class PublicEntries extends React.Component {
     state = {
         entries: [],
+        loading: true,
         error: null,
     }
 
     componentDidMount() {    
         EntriesService.getSomePublic(10)
-            .then(res => this.setState({ entries: res }))
+            .then(res => this.setState({ 
+                entries: res,
+                loading: false,
+            }))
             .catch(res => {
                 if (res.error) {
                     this.setState({ error: res.error })
@@ -24,6 +28,7 @@ class PublicEntries extends React.Component {
 
     render() {
         const error = this.state.error;
+        const loadingdisplay = this.state.loading ? <span className='formerror'>Loading Good Things...</span> : '';
         const entrydisplay = this.state.entries
             .filter(entry => entry.public === true)
             .sort(function(a, b) {
@@ -46,6 +51,7 @@ class PublicEntries extends React.Component {
                 <section className='bodysection'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
+                        {loadingdisplay}
                     </div>
                     <ul className='publicentries-list'>
                         {entrydisplay}

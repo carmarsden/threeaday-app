@@ -7,12 +7,16 @@ import Header from '../Header/Header';
 class PrivateEntriesPage extends React.Component {
     state = {
         entries: [],
+        loading: true,
         error: null,
     }
 
     componentDidMount() {
         EntriesService.getByUser()
-            .then(res => this.setState({ entries: res }))
+            .then(res => this.setState({ 
+                entries: res,
+                loading: false, 
+            }))
             .catch(res => {
                 if (res.error) {
                     this.setState({ error: res.error })
@@ -28,6 +32,7 @@ class PrivateEntriesPage extends React.Component {
 
     render() {
         const error = this.state.error;
+        const loadingdisplay = this.state.loading ? <span className='formerror'>Loading your Good Things...</span> : '';
         const entrydisplay = this.state.entries
             .map((entry, idx) => <PrivateEntry entry={entry} key={idx} />)
         ;
@@ -50,6 +55,7 @@ class PrivateEntriesPage extends React.Component {
                     <p>Try to get in a 3aDay Daily Habit!</p>
                 </section>
                 <section className='bodysection'>
+                    {loadingdisplay}
                     <ul className='privateentries-list'>
                         {entrydisplay}
                     </ul>
