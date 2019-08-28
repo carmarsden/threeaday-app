@@ -18,6 +18,11 @@ class NewEntriesPage extends React.Component {
     }
 
     componentDidMount() {
+        document.getElementById('primaryfocus').scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+        });
+
         const defaultObject = {
             content: '',
             public: true,
@@ -149,7 +154,7 @@ class NewEntriesPage extends React.Component {
                         <button className='modalbutton' onClick={this.handleCloseConfirmation}>Okay!</button>                        
                     </Modal>
                 </section>
-                <section className='bodysection scrollsnap'>
+                <section className='bodysection' id='primaryfocus'>
                     <NewEntryForm 
                         addEntry={this.addEntry}
                         removeEntry={this.removeEntry}

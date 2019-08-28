@@ -9,7 +9,7 @@ class PublicEntries extends React.Component {
         error: null,
     }
 
-    componentDidMount() {
+    componentDidMount() {    
         EntriesService.getSomePublic(10)
             .then(res => this.setState({ entries: res }))
             .catch(res => {
@@ -19,6 +19,7 @@ class PublicEntries extends React.Component {
                     this.setState({ error: 'Something went wrong! Please try again later.' })
                 }
             })
+        ;    
     }
 
     render() {
@@ -42,7 +43,7 @@ class PublicEntries extends React.Component {
         return (
             <main role='main'>
                 <Header>Good Things from the community</Header>
-                <section className='bodysection scrollsnap'>
+                <section className='bodysection'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                     </div>

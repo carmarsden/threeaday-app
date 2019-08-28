@@ -21,6 +21,13 @@ class RegisterForm extends React.Component {
         error: null,
     }
 
+    componentDidMount() {
+        document.getElementById('primaryfocus').scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+        });
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         this.setState({ error: null });
@@ -129,7 +136,7 @@ class RegisterForm extends React.Component {
         return (
             <main role='main'>
                 <Header />
-                <section className='bodysection scrollsnap'>
+                <section className='bodysection' id='primaryfocus'>
                     <div className='form-container'>
                         <h2 className='section-header'>Create Your Account</h2>
                         <div role='alert'>

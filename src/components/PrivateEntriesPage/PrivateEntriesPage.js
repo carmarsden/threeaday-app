@@ -35,7 +35,7 @@ class PrivateEntriesPage extends React.Component {
         return (
             <main role='main'>
                 <Header>My Good Things</Header>
-                <section className='bodysection scrollsnap'>
+                <section className='bodysection'>
                     <div role='alert'>
                         <span className='formerror'>{error}</span>
                     </div>
@@ -49,7 +49,7 @@ class PrivateEntriesPage extends React.Component {
                     <p>Users see the most benefit from consistently noticing three good things, every day.</p>
                     <p>Try to get in a 3aDay Daily Habit!</p>
                 </section>
-                <section className='bodysection scrollsnap'>
+                <section className='bodysection'>
                     <ul className='privateentries-list'>
                         {entrydisplay}
                     </ul>

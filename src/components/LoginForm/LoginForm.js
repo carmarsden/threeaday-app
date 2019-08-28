@@ -6,11 +6,18 @@ import TokenService from '../../services/token-service';
 import Header from '../Header/Header';
 
 class LoginForm extends React.Component {
-
     state = { 
         error: null,
         test: 'string',
     };
+
+    componentDidMount() {
+        document.getElementById('primaryfocus').scrollIntoView({
+            block: 'start',
+            behavior: 'smooth',
+        });
+    }
+
 
     handleSubmit = e => {
         e.preventDefault();
@@ -47,7 +54,7 @@ class LoginForm extends React.Component {
         return (
             <main role='main'>
                 <Header />
-                <section className='bodysection scrollsnap'>
+                <section className='bodysection' id='primaryfocus'>
                     <div className='form-container'>
                         <h2 className='section-header'>Log In</h2>
                         <div role='alert'>
